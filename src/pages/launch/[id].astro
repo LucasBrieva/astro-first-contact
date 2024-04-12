@@ -1,0 +1,18 @@
+---
+import { getLaunchBy } from "../../services/roclefe";
+import Layout from "../../layouts/Layout.astro";
+
+export const prerender = false;
+const { id } = Astro.params;
+let launch;
+if (id) {
+    launch = await getLaunchBy({ id });
+}
+
+---
+
+<Layout title="Launch">
+    <article>
+        {launch?.id}
+    </article>
+</Layout>
